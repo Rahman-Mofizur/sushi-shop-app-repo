@@ -1,8 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/widgets.dart';
 import 'package:sushi_shop_app/components/button.dart';
+import 'package:sushi_shop_app/components/cart.dart';
 
 class MySushiMenu extends StatefulWidget {
   const MySushiMenu({super.key});
@@ -114,61 +112,74 @@ class _MySushiMenuState extends State<MySushiMenu> {
               style: TextStyle(fontSize: 17, fontWeight: FontWeight.w600),
             ),
             const SizedBox(
-              height: 20,
+              height: 8,
             ),
-            Row(
-              children: [
-                Container(
-                  width: 200,
+            Expanded(
+              child: ListView(
+                scrollDirection: Axis.horizontal,
+                children: const [
+                  MyCart(),
+                  MyCart(),
+                  MyCart(),
+                  MyCart(),
+                  MyCart(),
+                ],
+              ),
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            const Text(
+              'Popular Food',
+              style: TextStyle(fontSize: 17, fontWeight: FontWeight.w600),
+            ),
+            const SizedBox(
+              height: 8,
+            ),
+            Container(
+              decoration: BoxDecoration(
                   color: Colors.grey[200],
-                  child: Padding(
-                    padding: const EdgeInsets.all(15.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                  borderRadius: BorderRadius.circular(15)),
+              child: Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Row(
                       children: [
-                        Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                          child: Image.asset('lib/images/sushi1.png'),
-                        ),
-                        const Padding(
-                          padding: EdgeInsets.only(top: 10.0),
-                          child: Text(
-                            'Salmon Sushi',
-                            style: TextStyle(
-                                fontSize: 18, fontWeight: FontWeight.w600),
+                        SizedBox(
+                          height: 80,
+                          width: 80,
+                          child: Image.asset(
+                            'lib/images/sushi.png',
                           ),
                         ),
                         const Padding(
-                          padding: EdgeInsets.only(top: 10.0),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          padding: EdgeInsets.only(left: 10.0),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                r'$21.00',
-                                style: TextStyle(fontWeight: FontWeight.w800),
+                                'Salmon Eggs',
+                                style: TextStyle(
+                                    fontSize: 18, fontWeight: FontWeight.w600),
                               ),
-                              Row(
-                                children: [
-                                  Icon(
-                                    Icons.star,
-                                    size: 20,
-                                    color: Colors.deepOrange,
-                                  ),
-                                  Text(
-                                    '4.9',
-                                    style:
-                                        TextStyle(fontWeight: FontWeight.w600),
-                                  ),
-                                ],
+                              Padding(
+                                padding: EdgeInsets.only(top: 5.0),
+                                child: Text(
+                                  r'$21.00',
+                                  style: TextStyle(fontWeight: FontWeight.w800),
+                                ),
                               ),
                             ],
                           ),
                         ),
                       ],
                     ),
-                  ),
+                    const Icon(Icons.favorite_border),
+                  ],
                 ),
-              ],
+              ),
             ),
           ],
         ),
