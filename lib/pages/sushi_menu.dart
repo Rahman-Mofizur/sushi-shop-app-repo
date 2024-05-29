@@ -5,13 +5,6 @@ import 'package:sushi_shop_app/components/cart.dart';
 class MySushiMenu extends StatefulWidget {
   const MySushiMenu({super.key});
 
-  // final List<String> cartItems = [
-  //   'lib/images/sushi1.png',
-  //   'lib/images/sushi2.png',
-  //   'lib/images/sushi3.png',
-  //   'lib/images/sushi4.png',
-  // ];
-
   @override
   State<MySushiMenu> createState() => _MySushiMenuState();
 }
@@ -49,7 +42,7 @@ class _MySushiMenuState extends State<MySushiMenu> {
 
       //  Body
       body: Padding(
-        padding: const EdgeInsets.all(20.0),
+        padding: const EdgeInsets.symmetric(horizontal: 20.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           // Promo Section
@@ -187,6 +180,9 @@ class _MySushiMenuState extends State<MySushiMenu> {
                   ],
                 ),
               ),
+            ),
+            const SizedBox(
+              height: 10,
             ),
           ],
         ),
